@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Text } from "../../../components/spacer/typography/typography";
+import { Text } from "../../../components/typography/typography";
 import SvgXml from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
