@@ -1,65 +1,33 @@
 import React from "react";
-import {View} from 'react-native';
-import { Card, Text } from "react-native-paper";
-import styled from "styled-components/native";
-import { SvgXml } from "react-native-svg";
+import { View } from "react-native";
+import { Text } from "../../../components/spacer/typography/typography";
+import SvgXml from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer/spacer.component";
+import {
+  RestaurantCard,
+  RestaurantCardCover,
+  Info,
+  Section,
+  SectionEnd,
+  Rating,
+  Icon,
+  Address,
+} from "./restuarant-info-card.styles";
 
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: white;
-`;
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-const Section = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const SectionEnd = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-
-const Open = styled(SvgXml)`
-  flex-direction: row;
-`;
-
-const Title = styled.Text`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-`;
-
-const Address = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.caption};
-  font-family: ${(props) => props.theme.fonts.body};
-`;
-export const RestaurantInfoCard = ({ restuarant = {} }) => {
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "Mock Restaurant",
-    icon,
+    name = "Some Restaurant",
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
-      "https://media.istockphoto.com/photos/breakfast-breakfast-table-still-life-picture-id1296315995",
+      "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
     ],
-    address = "some random address",
+    address = "100 some random street",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
-  } = restuarant;
+  } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   console.log("ratingArray", ratingArray);
@@ -67,7 +35,7 @@ export const RestaurantInfoCard = ({ restuarant = {} }) => {
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Section>
           <Rating>
             {ratingArray.map(() => (
@@ -76,14 +44,16 @@ export const RestaurantInfoCard = ({ restuarant = {} }) => {
           </Rating>
           <SectionEnd>
             {isClosedTemporarily && (
-              <Text variant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
-            <View style={{ paddingLeft: 16 }} />
-            {isOpenNow && <Open xml={open} width={20} height={20} />}
-            <View style={{ paddingLeft: 16 }} />
-            {/* <Image style = {{width:15, height:15}} source ={{uri}}/> */}
+            <Spacer position="top" size="large">
+              <View style={{ paddingLeft: 16 }} />
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <View style={{ paddingLeft: 16 }} />
+              <Icon source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
