@@ -8,7 +8,7 @@ import React, {
 import {
   restaurantsTransform,
   restaurantsRequest,
-} from "./restuarant.services";
+} from "./restuarants.services";
 import { LocationContext } from "../location/location.context";
 
 export const RestaurantsContext = createContext();

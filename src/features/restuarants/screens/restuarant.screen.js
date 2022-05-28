@@ -4,7 +4,7 @@ import { ActivityIndicator, Colors } from "react-native-paper";
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restuarant-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
-import { RestaurantsContext } from "../../../services/restuarants/mock/restuarant.context";
+import { RestaurantsContext } from "../../../services/restuarants/restuarant.context";
 import styled from "styled-components/native";
 
 const SafeArea = styled(SafeAreaView)`

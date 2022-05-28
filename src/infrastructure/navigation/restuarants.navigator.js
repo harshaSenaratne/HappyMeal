@@ -5,9 +5,8 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
-import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
-import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant-detail.screen";
-
+import { RestaurantScreen } from "../../features/restuarants/screens/restuarant.screen";
+import { RestaurantDetailScreen } from "../../features/restuarants/screens/restaurant-detail";
 const RestaurantStack = createStackNavigator();
 
 export const RestaurantsNavigator = () => {
@@ -18,10 +17,7 @@ export const RestaurantsNavigator = () => {
         ...TransitionPresets.ModalPresentationIOS,
       }}
     >
-      <RestaurantStack.Screen
-        name="Restaurants"
-        component={RestaurantsScreen}
-      />
+      <RestaurantStack.Screen name="Restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
         name="RestaurantDetail"
         component={RestaurantDetailScreen}
