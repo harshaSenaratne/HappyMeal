@@ -1,10 +1,13 @@
 import React from "react";
-import { View } from "react-native";
-import { Text } from "../../../components/typography/typography";
 import { SvgXml } from "react-native-svg";
+import { View } from "react-native";
+
+import { Favourite } from "../../../components/favourites/favourite.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typography/text.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-import { Spacer } from "../../../components/spacer/spacer.component";
+
 import {
   RestaurantCard,
   RestaurantCardCover,
@@ -14,7 +17,7 @@ import {
   Rating,
   Icon,
   Address,
-} from "./restuarant-info-card.styles";
+} from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -31,10 +34,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-  console.log("ratingArray", ratingArray);
+
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <View>
+        <Favourite restaurant={restaurant} />
+        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      </View>
       <Info>
         <Text variant="label">{name}</Text>
         <Section>
@@ -52,12 +58,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             {isClosedTemporarily && (
               <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
-            <Spacer position="top" size="large">
-              <View style={{ paddingLeft: 16 }} />
+            <Spacer position="left" size="large">
               {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             </Spacer>
             <Spacer position="left" size="large">
-              <View style={{ paddingLeft: 16 }} />
               <Icon source={{ uri: icon }} />
             </Spacer>
           </SectionEnd>

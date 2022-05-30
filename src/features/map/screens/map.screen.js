@@ -3,7 +3,7 @@ import MapView from "react-native-maps";
 import styled from "styled-components/native";
 
 import { LocationContext } from "../../../services/location/location.context";
-import { RestaurantsContext } from "../../../services/restuarants/restuarant.context";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 import { Search } from "../components/search.component";
 import { MapCallout } from "../components/map-callout.component";
