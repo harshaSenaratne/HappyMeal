@@ -2,6 +2,8 @@
 A mock app to search nearby restaurants using the Apple Maps / Google Maps and make payments using Stripe gateway. 
 
 ## Preview 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/25275596/171071769-8e618d9f-d5b4-4495-a230-4f5c518f0e6a.gif)
+
 
 
 ## Installation
