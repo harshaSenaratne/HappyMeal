@@ -1,4 +1,4 @@
-# Happ Meal
+# Happy Meal
 A mock app to search nearby restaurants using the Apple Maps / Google Maps and make payments using Stripe gateway. 
 
 ## Preview 
