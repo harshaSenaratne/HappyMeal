@@ -1,6 +1,11 @@
 # Happy Meal
 A mock app to search nearby restaurants using the Apple Maps / Google Maps and make payments using Stripe gateway. 
 
+
+## App Architecture
+![HappyMeal-Architecture drawio (1)](https://user-images.githubusercontent.com/25275596/175786895-40e84d90-8bdc-4daf-9b81-6059812feb8b.png)
+
+
 ## Preview 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/25275596/171071769-8e618d9f-d5b4-4495-a230-4f5c518f0e6a.gif)
 
